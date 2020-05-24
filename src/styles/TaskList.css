@@ -1,11 +1,36 @@
+.lists {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .lists div {
-  margin-top: 5px;
+  flex-basis: 40%;
+  margin-top: 20px;
+  /* margin: 20px; */
   padding: 10px;
   border: 1px solid gainsboro;
+  border-radius: 10px;
   text-align: center;
 }
 h2 {
   font-size: 2.2rem;
   letter-spacing: 1px;
   font-weight: normal;
+  color: darkorange;
+}
+
+.goToAnotherView {
+  display: inline-block;
+  margin: 10px 0;
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  border: 1px solid gray;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  /* font-weight: bold; */
 }

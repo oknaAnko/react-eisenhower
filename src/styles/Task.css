@@ -1,3 +1,14 @@
 ul {
   list-style: none;
 }
+
+button.moveTask {
+  margin: 10px 0;
+  font-size: 1.3rem;
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: none;
+  width: 30px;
+}
