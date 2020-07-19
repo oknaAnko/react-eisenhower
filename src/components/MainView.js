@@ -1,142 +1,52 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import AddTask from "./AddTask";
-import TaskList from "./TaskList";
+import "../styles/MainView.css";
+import DoTasks from "./containers/DoTasks";
+import DecideTasks from "./containers/DecideTasks";
+import DelegateTasks from "./containers/DelegateTasks";
+import DropTasks from "./containers/DropTasks";
 
-class MainView extends Component {
-  counter = 0;
-  state = {
-    tasks: [
-      {
-        id: this.counter,
-        name: "",
-        date: "",
-        status: null,
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 0,
-        name: "zad1",
-        date: "2020-26-04",
-        status: "do",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 1,
-        name: "zad2",
-        date: "2020-26-04",
-        status: "decide",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 2,
-        name: "zad3",
-        date: "2020-26-04",
-        status: "delegate",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 3,
-        name: "zad4",
-        date: "2020-26-04",
-        status: "drop",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 4,
-        name: "zad4",
-        date: "2020-26-04",
-        status: "do",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 5,
-        name: "zad5",
-        date: "2020-26-04",
-        status: "do",
-        // active: true,
-        done: true,
-        deleted: false,
-      },
-    ],
-  };
-  // tasks = [
-  //   { id: 0, name: "zad1", date: "2020-26-04", status: "do" },
-  //   { id: 1, name: "zad2", date: "2020-26-04", status: "decide" },
-  //   { id: 2, name: "zad3", date: "2020-26-04", status: "delegate" },
-  //   { id: 3, name: "zad4", date: "2020-26-04", status: "drop" },
-  // ];
-
-  addTask = (name, date, status) => {
-    const newTask = {
-      id: this.counter,
-      name: name,
-      date: date,
-      status: status,
-    };
-    this.counter++;
-    this.setState((prevState) => ({
-      tasks: [...prevState.tasks, newTask],
-    }));
-    console.log("dodaje nowy obiekt");
-    return true;
-  };
-
-  moveTaskToDoneList = (id) => {
-    console.log("przenoszę do donelist");
-    const tasks = [...this.state.tasks];
-    tasks.forEach((task) => {
-      if (task.id === id) {
-        console.log("jestem w task.done");
-        task.done = true;
-      }
-    });
-    this.setState({
-      tasks: tasks,
-    });
-  };
-
-  deleteTask = (id) => {
-    console.log("usuwam cię");
-    // const tasks = [...this.state.tasks];
-    // tasks.forEach((task) => {
-    //   if (task.id === id) {
-    //     task.delete = true;
-    //   }
-    // });
-    // this.setState({
-    //   tasks: tasks,
-    // });
-    const tasks = [...this.state.tasks];
-    const newtasks = tasks.filter((task) => task.id !== id);
-    this.setState({
-      tasks: newtasks,
-    });
-  };
-
-  render() {
-    return (
-      <div className="main">
-        <AddTask add={this.addTask} />
-        <TaskList
-          tasks={this.state.tasks}
-          moveToDone={this.moveTaskToDoneList}
-          deleteTask={this.deleteTask}
-        />
+const MainView = () => {
+  return (
+    <div className="main">
+      <AddTask />
+      <div className="lists">
+        <div className="doList">
+          <h2>Fire</h2>
+          <p>(zrób szybko, bo się pali)</p>
+          <DoTasks />
+          <Link to="/fire" className="goToAnotherView">
+            więcej
+          </Link>
+        </div>
+        <div className="decideList">
+          <h2>Zaplanuj przyszłość</h2>
+          <p>(zaplanuj to, co jest ważne)</p>
+          <DecideTasks />
+          <Link to="/zaplanuj" className="goToAnotherView">
+            więcej
+          </Link>
+        </div>
+        <div className="delegateList">
+          <h2>Zrób i zapomnij</h2>
+          <p>(zrób lub oddeleguj, bo po co się męczyć)</p>
+          <DelegateTasks />
+          <Link to="/zapomnij" className="goToAnotherView">
+            więcej
+          </Link>
+        </div>
+        <div className="dropList">
+          <h2>A gdy masz gorszy czas...</h2>
+          <p>(lepiej sobie odpuścić, bo to tzw. "zapychacze czasu")</p>
+          <DropTasks />
+          <Link to="/gorszyczas" className="goToAnotherView">
+            więcej
+          </Link>
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default MainView;

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../styles/AddTask.css";
+import { addTask } from "./actions";
+import { connect, useStore } from "react-redux";
 
 class AddTask extends Component {
   minDate = new Date().toISOString().slice(0, 10);
@@ -27,22 +29,21 @@ class AddTask extends Component {
   };
 
   handleAddClick = () => {
-    console.log("ok");
-    const { name, date, status } = this.state;
-    const add = this.props.add(name, date, status);
-    if (add) {
-      this.setState({
-        name: "",
-        date: this.minDate,
-        status: "do",
-      });
-    }
+    this.props.dispatch(
+      addTask(this.state.name, this.state.date, this.state.status)
+    );
+    this.setState({
+      name: "",
+      date: this.minDate,
+      status: "do",
+    });
   };
+
   render() {
     let maxDate = this.minDate.slice(0, 4) * 1 + 1;
     maxDate = maxDate + "-12-31";
     return (
-      <div className="form">
+      <form className="form" onSubmit={this.handleAddClick}>
         <label htmlFor="name">
           Co masz do zrobienia?
           <input
@@ -81,10 +82,10 @@ class AddTask extends Component {
           </select>
         </label>
         <br />
-        <button onClick={this.handleAddClick}>DODAJ</button>
-      </div>
+        <button>DODAJ</button>
+      </form>
     );
   }
 }
 
-export default AddTask;
+export default connect()(AddTask);
