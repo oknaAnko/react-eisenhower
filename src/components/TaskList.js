@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task";
 
 const TaskList = (sth) => {
-  const { tasks, doneTasks, deletedTasks, title } = sth;
+  const { tasks, doneTasks, deletedTasks, title, showedIn } = sth;
   const undoneTasks = tasks.filter((task) => !task.done);
   const undoneTasksTable = undoneTasks.map((task) => (
     <Task key={task.id} task={task} />
@@ -17,12 +17,13 @@ const TaskList = (sth) => {
   return (
     <div>
       {title}
+
       <p>do zrobienia</p>
-      {undoneTasksTable}
+      {showedIn ? undoneTasksTable.slice(0, 3) : undoneTasksTable}
       <p>zrobione</p>
-      {doneTasksTable}
+      {showedIn ? doneTasksTable.slice(0, 3) : doneTasksTable}
       <p>usunięte</p>
-      {deletedTasksTable}
+      {showedIn ? deletedTasksTable.slice(0, 3) : deletedTasksTable}
     </div>
   );
 };

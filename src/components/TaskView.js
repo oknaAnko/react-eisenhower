@@ -7,6 +7,7 @@ import DelegateTasks from "./containers/DelegateTasks";
 import DropTasks from "./containers/DropTasks";
 
 const TaskView = () => {
+  const showedInMainView = false;
   return (
     <div>
       <p>Działa strona TaskView</p>
@@ -14,22 +15,22 @@ const TaskView = () => {
         <div className="doList">
           <h2>Fire</h2>
           <p>(zrób szybko, bo się pali)</p>
-          <DoTasks />
+          <DoTasks showedIn={showedInMainView} />
         </div>
         <div className="decideList">
           <h2>Zaplanuj przyszłość</h2>
           <p>(zaplanuj to, co jest ważne)</p>
-          <DecideTasks />
+          <DecideTasks showedIn={showedInMainView} />
         </div>
         <div className="delegateList">
           <h2>Zrób i zapomnij</h2>
           <p>(zrób lub oddeleguj, bo po co się męczyć)</p>
-          <DelegateTasks />
+          <DelegateTasks showedIn={showedInMainView} />
         </div>
         <div className="dropList">
           <h2>A gdy masz gorszy czas...</h2>
           <p>(lepiej sobie odpuścić, bo to tzw. "zapychacze czasu")</p>
-          <DropTasks />
+          <DropTasks showedIn={showedInMainView} />
         </div>
         <Link to="/" className="goToAnotherView">
           powrót
