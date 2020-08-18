@@ -1,0 +1,8 @@
+.tasksCard {
+  min-height: 140px;
+  background-color: #ebf1f5;
+}
+
+h6 {
+  text-transform: uppercase;
+}

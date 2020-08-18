@@ -47,18 +47,18 @@ class App extends Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
+            <header>
+              <Header />
+            </header>
             <div className="wrapper">
-              <header>
-                <Header />
-              </header>
               <Switch>
                 <Route path="/" exact component={MainView} />
                 <Route path="/:id" component={TaskView} />
               </Switch>
-              <footer>
-                <Footer />
-              </footer>
             </div>
+            <footer>
+              <Footer />
+            </footer>
           </Router>
         </PersistGate>
       </Provider>

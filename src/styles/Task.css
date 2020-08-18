@@ -1,14 +1,14 @@
-ul {
-  list-style: none;
+li {
+  text-align: left;
 }
-
-button.moveTask {
-  margin: 10px 0;
-  font-size: 1rem;
-  padding: 5px;
-  border: 1px solid gray;
-  background-color: white;
-  cursor: pointer;
-  box-shadow: none;
-  width: 30px;
+.lists div.oneTaskCard {
+  margin-top: 5px;
+  text-align: left;
+  line-height: 0px;
+  background-color: #ebf1f5;
+  border-radius: 5px;
+}
+p.small {
+  font-size: 1.2rem;
+  font-style: italic;
 }

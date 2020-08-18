@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Task.css";
+import { Card, Elevation, Button } from "@blueprintjs/core";
 import { moveToDoneList, moveToDeleteList } from "./actions";
 import { connect } from "react-redux";
 
@@ -7,43 +8,50 @@ const Task = (props) => {
   const { id, name, date, done, deleted } = props.task;
   if (!done && !deleted) {
     return (
-      <ul>
-        <li>
-          {name} - {date}{" "}
-          <button
-            className="moveTask"
-            onClick={() => props.dispatch(moveToDoneList(id))}
-          >
-            OK
-          </button>
-          <button
-            className="moveTask"
-            onClick={() => props.dispatch(moveToDeleteList(id))}
-          >
-            X
-          </button>
-        </li>
-      </ul>
+      <Card
+        className="oneTaskCard"
+        interactive={false}
+        elevation={Elevation.ONE}
+      >
+        <p className="small">termin: {date}</p>
+        {name}{" "}
+        <Button
+          className="bp3-intent-primary bp3-small bp3-minimal bp3-outlined moveTask"
+          icon="endorsed"
+          onClick={() => props.dispatch(moveToDoneList(id))}
+        />
+        <Button
+          className="bp3-intent-primary bp3-small bp3-minimal bp3-outlined moveTask"
+          icon="delete"
+          onClick={() => props.dispatch(moveToDeleteList(id))}
+        />
+      </Card>
     );
   } else if (done && !deleted) {
     return (
-      <ul>
-        <li>
-          {name}{" "}
-          <button
-            className="moveTask"
-            onClick={() => props.dispatch(moveToDeleteList(id))}
-          >
-            X
-          </button>
-        </li>
-      </ul>
+      <Card
+        className="oneTaskCard"
+        interactive={false}
+        elevation={Elevation.ONE}
+      >
+        <p className="small">wykonano: </p>
+        {name}{" "}
+        <Button
+          className="bp3-intent-primary bp3-small bp3-minimal bp3-outlined moveTask"
+          icon="delete"
+          onClick={() => props.dispatch(moveToDeleteList(id))}
+        />
+      </Card>
     );
   } else if (deleted) {
     return (
-      <ul>
-        <li>{name} </li>
-      </ul>
+      <Card
+        className="oneTaskCard"
+        interactive={false}
+        elevation={Elevation.ONE}
+      >
+        {name}
+      </Card>
     );
   }
 };

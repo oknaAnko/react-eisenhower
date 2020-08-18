@@ -29,3 +29,11 @@ export const moveToDeleteList = (id) => {
     id,
   };
 };
+
+//fix me - delete all tasks from deletedList
+// export const deleteAll = (id) => {
+//   return {
+//     type: "DELETE_ALL",
+//     id,
+//   };
+// };

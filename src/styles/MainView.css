@@ -1,36 +1,32 @@
 .lists {
+  /* padding: 15px; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .lists div {
-  flex-basis: 40%;
+  flex-basis: 45%;
   margin-top: 20px;
-  /* margin: 20px; */
   padding: 10px;
-  border: 1px solid gainsboro;
+  /* border: 1px solid gainsboro; */
   border-radius: 10px;
   text-align: center;
+  position: relative;
 }
-h2 {
-  font-size: 2rem;
-  letter-spacing: 1px;
-  font-weight: normal;
-  color: darkorange;
-}
-
 .goToAnotherView {
-  display: inline-block;
   margin: 10px 0;
-  font-size: 1.3rem;
-  padding: 5px 10px;
-  border: 1px solid gray;
-  background-color: white;
-  cursor: pointer;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  text-decoration: none;
   text-transform: uppercase;
-  color: black;
-  /* font-weight: bold; */
+}
+.doList {
+  background-color: #ff6e4a;
+}
+.decideList {
+  background-color: #b6d94c;
+}
+.delegateList {
+  background-color: #ffc940;
+}
+.dropList {
+  background-color: #c274c2;
 }
