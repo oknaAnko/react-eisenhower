@@ -3,10 +3,10 @@
   /* margin-top: 5px; */
   padding: 15px 0;
 }
-input,
+/* input,
 .text-upper {
   text-transform: uppercase;
-}
+} */
 
 .flex-row-forms {
   display: flex;

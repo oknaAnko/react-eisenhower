@@ -5,7 +5,7 @@ import { moveToDoneList, moveToDeleteList } from "./actions";
 import { connect } from "react-redux";
 
 const Task = (props) => {
-  const { id, name, date, done, deleted } = props.task;
+  const { id, name, deadline, done, deleted } = props.task;
   if (!done && !deleted) {
     return (
       <Card
@@ -13,7 +13,7 @@ const Task = (props) => {
         interactive={false}
         elevation={Elevation.ONE}
       >
-        <p className="small">termin: {date}</p>
+        <p className="small">termin: {deadline}</p>
         {name}{" "}
         <Button
           className="bp3-intent-primary bp3-small bp3-minimal bp3-outlined moveTask"
@@ -34,7 +34,7 @@ const Task = (props) => {
         interactive={false}
         elevation={Elevation.ONE}
       >
-        <p className="small">wykonano: </p>
+        <p className="small">wykonano: {props.completionDate}</p>
         {name}{" "}
         <Button
           className="bp3-intent-primary bp3-small bp3-minimal bp3-outlined moveTask"

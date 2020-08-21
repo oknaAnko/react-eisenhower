@@ -9,7 +9,7 @@ class AddTask extends Component {
 
   state = {
     name: "",
-    date: this.minDate,
+    deadline: this.minDate,
     status: "do",
   };
 
@@ -20,7 +20,7 @@ class AddTask extends Component {
   };
   handleDateChange = (e) => {
     this.setState({
-      date: e.target.value,
+      deadline: e.target.value,
     });
   };
   handleStatusChange = (e) => {
@@ -32,11 +32,11 @@ class AddTask extends Component {
   handleAddClick = (e) => {
     e.preventDefault();
     this.props.dispatch(
-      addTask(this.state.name, this.state.date, this.state.status)
+      addTask(this.state.name, this.state.deadline, this.state.status)
     );
     this.setState({
       name: "",
-      date: this.minDate,
+      deadline: this.minDate,
       status: "do",
     });
   };
@@ -68,10 +68,9 @@ class AddTask extends Component {
                 <InputGroup
                   type="date"
                   id="date"
-                  placeholder="wpisz"
                   min={this.minDate}
                   max={maxDate}
-                  value={this.state.date}
+                  value={this.state.deadline}
                   onChange={this.handleDateChange}
                 />
               </ControlGroup>

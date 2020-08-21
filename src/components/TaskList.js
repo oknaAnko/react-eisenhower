@@ -7,13 +7,34 @@ import "../styles/TaskList.css";
 // import { deteleAll } from "./actions";
 
 const TaskList = (sth) => {
-  const { tasks, doneTasks, deletedTasks, showedIn } = sth;
+  const {
+    tasks,
+    doneTasks,
+    deletedTasks,
+    showedInMainView,
+    completionDate,
+  } = sth;
+
   const undoneTasks = tasks.filter((task) => !task.done);
+
+  undoneTasks.sort((a, b) => {
+    return new Date(b.deadline).getTime() - new Date(a.deadline).getTime();
+  });
+
   const undoneTasksTable = undoneTasks.map((task) => (
     <Task key={task.id} task={task} />
   ));
+
+  doneTasks.sort((a, b) => {
+    console.log(a.name);
+    a = a.name.toLowerCase();
+    b = b.name.toLowerCase();
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+  });
   const doneTasksTable = doneTasks.map((task) => (
-    <Task key={task.id} task={task} />
+    <Task key={task.id} task={task} completionDate={completionDate} />
   ));
 
   const deletedTasksTable = deletedTasks.map((task) => (
@@ -24,15 +45,15 @@ const TaskList = (sth) => {
     <>
       <Card className="tasksCard" interactive={false} elevation={Elevation.ONE}>
         <H6>do zrobienia</H6>
-        {showedIn ? undoneTasksTable.slice(0, 3) : undoneTasksTable}
+        {showedInMainView ? undoneTasksTable.slice(0, 3) : undoneTasksTable}
       </Card>
 
       <Card className="tasksCard" interactive={false} elevation={Elevation.ONE}>
         <H6>zrobione</H6>
-        {showedIn ? doneTasksTable.slice(0, 3) : doneTasksTable}
+        {showedInMainView ? doneTasksTable.slice(0, 3) : doneTasksTable}
       </Card>
 
-      {showedIn ? null : (
+      {showedInMainView ? null : (
         <Card
           className="tasksCard"
           interactive={false}

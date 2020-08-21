@@ -11,7 +11,7 @@ const taskReducer = (state = initialState, action) => {
           {
             id: action.id,
             name: action.name,
-            date: action.date,
+            deadline: action.date,
             status: action.status,
             done: false,
             deleted: false,

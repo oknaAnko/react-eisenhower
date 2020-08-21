@@ -9,7 +9,7 @@ import DelegateTasks from "./containers/DelegateTasks";
 import DropTasks from "./containers/DropTasks";
 
 const MainView = () => {
-  const showedInMainView = true;
+  const completionDate = new Date().toISOString().slice(0, 10);
   return (
     <div className="main">
       <AddTask />
@@ -21,7 +21,7 @@ const MainView = () => {
         >
           <H3>Fire</H3>
           <p>(zrób szybko, bo się pali)</p>
-          <DoTasks showedIn={showedInMainView} />
+          <DoTasks showedInMainView={true} completionDate={completionDate} />
           <Link
             to="/tasks"
             className="bp3-button bp3-intent-primary goToAnotherView"
@@ -39,7 +39,10 @@ const MainView = () => {
         >
           <H3>Zaplanuj przyszłość</H3>
           <p>(zaplanuj to, co jest ważne)</p>
-          <DecideTasks showedIn={showedInMainView} />
+          <DecideTasks
+            showedInMainView={true}
+            completionDate={completionDate}
+          />
           <Link
             to="/tasks"
             className="bp3-button bp3-intent-primary goToAnotherView"
@@ -56,7 +59,10 @@ const MainView = () => {
         >
           <H3>Zrób i zapomnij</H3>
           <p>(zrób lub oddeleguj, bo po co się męczyć)</p>
-          <DelegateTasks showedIn={showedInMainView} />
+          <DelegateTasks
+            showedInMainView={true}
+            completionDate={completionDate}
+          />
           <Link
             to="/tasks"
             className="bp3-button bp3-intent-primary goToAnotherView"
@@ -73,7 +79,7 @@ const MainView = () => {
         >
           <H3>A gdy masz gorszy czas...</H3>
           <p>(lepiej sobie odpuścić, bo to tzw. "zapychacze czasu")</p>
-          <DropTasks showedIn={showedInMainView} />
+          <DropTasks showedInMainView={true} completionDate={completionDate} />
           <Link
             to="/tasks"
             className="bp3-button bp3-intent-primary goToAnotherView"

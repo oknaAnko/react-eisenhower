@@ -7,7 +7,7 @@ import DelegateTasks from "./containers/DelegateTasks";
 import DropTasks from "./containers/DropTasks";
 
 const TaskView = () => {
-  const showedInMainView = false;
+  const completionDate = new Date().toISOString().slice(0, 10);
   return (
     <div>
       <Link
@@ -25,7 +25,7 @@ const TaskView = () => {
         >
           <H3>Fire</H3>
           <p>(zrób szybko, bo się pali)</p>
-          <DoTasks showedIn={showedInMainView} />
+          <DoTasks showedInMainView={false} completionDate={completionDate} />
         </Card>
 
         <Card
@@ -35,7 +35,10 @@ const TaskView = () => {
         >
           <H3>Zaplanuj przyszłość</H3>
           <p>(zaplanuj to, co jest ważne)</p>
-          <DecideTasks showedIn={showedInMainView} />
+          <DecideTasks
+            showedInMainView={false}
+            completionDate={completionDate}
+          />
         </Card>
 
         <Card
@@ -45,7 +48,10 @@ const TaskView = () => {
         >
           <H3>Zrób i zapomnij</H3>
           <p>(zrób lub oddeleguj, bo po co się męczyć)</p>
-          <DelegateTasks showedIn={showedInMainView} />
+          <DelegateTasks
+            showedInMainView={false}
+            completionDate={completionDate}
+          />
         </Card>
 
         <Card
@@ -55,7 +61,7 @@ const TaskView = () => {
         >
           <H3>A gdy masz gorszy czas...</H3>
           <p>(lepiej sobie odpuścić, bo to tzw. "zapychacze czasu")</p>
-          <DropTasks showedIn={showedInMainView} />
+          <DropTasks showedInMainView={false} completionDate={completionDate} />
         </Card>
       </div>
     </div>
