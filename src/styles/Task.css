@@ -4,7 +4,6 @@ li {
 .lists div.oneTaskCard {
   margin-top: 5px;
   text-align: left;
-  line-height: 0px;
   background-color: #ebf1f5;
   border-radius: 5px;
 }

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import TaskList from "../TaskList";
+import { clearDeleteList } from "../actions";
 
 const mapStateToProps = (state) => ({
   tasks: state.tasks.filter((task) => task.status === "drop" && !task.deleted),
@@ -11,4 +12,10 @@ const mapStateToProps = (state) => ({
   ),
 });
 
-export default connect(mapStateToProps)(TaskList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearDeleteList: () => dispatch(clearDeleteList("drop")),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

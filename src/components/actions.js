@@ -24,16 +24,17 @@ export const moveToDoneList = (id) => {
 };
 
 export const moveToDeleteList = (id) => {
+  console.log(id);
   return {
     type: "MOVE_TO_DELETE",
     id,
   };
 };
 
-//fix me - delete all tasks from deletedList
-// export const deleteAll = (id) => {
-//   return {
-//     type: "DELETE_ALL",
-//     id,
-//   };
-// };
+export const clearDeleteList = (status) => {
+  console.log(status);
+  return {
+    type: "CLEAR_LIST",
+    status,
+  };
+};

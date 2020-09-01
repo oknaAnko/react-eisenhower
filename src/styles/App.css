@@ -9,3 +9,7 @@ footer {
   text-align: center;
   line-height: 5vh;
 }
+
+h6 {
+  text-transform: uppercase;
+}

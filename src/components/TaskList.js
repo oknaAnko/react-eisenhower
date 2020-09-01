@@ -3,9 +3,6 @@ import Task from "./Task";
 import { Card, Elevation, H6, Button } from "@blueprintjs/core";
 import "../styles/TaskList.css";
 
-//fix me - delete all tasks from deletedList
-// import { deteleAll } from "./actions";
-
 const TaskList = (sth) => {
   const {
     tasks,
@@ -13,7 +10,10 @@ const TaskList = (sth) => {
     deletedTasks,
     showedInMainView,
     completionDate,
+    clearDeleteList,
   } = sth;
+
+  // console.log(status);
 
   const undoneTasks = tasks.filter((task) => !task.done);
 
@@ -26,7 +26,6 @@ const TaskList = (sth) => {
   ));
 
   doneTasks.sort((a, b) => {
-    console.log(a.name);
     a = a.name.toLowerCase();
     b = b.name.toLowerCase();
     if (a > b) return 1;
@@ -61,9 +60,10 @@ const TaskList = (sth) => {
         >
           <H6>usunięte</H6>
           {deletedTasksTable}
+
           <Button
             className="bp3-intent-primary bp3-small goToAnotherView"
-            // onClick={() => props.dispatch(deleteAll(id))}
+            onClick={() => clearDeleteList()}
           >
             WYCZYŚĆ
           </Button>

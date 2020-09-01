@@ -23,8 +23,8 @@ const TaskView = () => {
           interactive={false}
           elevation={Elevation.THREE}
         >
-          <H3>Fire</H3>
-          <p>(zrób szybko, bo się pali)</p>
+          <H3>Pali się!</H3>
+          <p>(rzeczy ważne i pilne)</p>
           <DoTasks showedInMainView={false} completionDate={completionDate} />
         </Card>
 
@@ -34,7 +34,7 @@ const TaskView = () => {
           elevation={Elevation.THREE}
         >
           <H3>Zaplanuj przyszłość</H3>
-          <p>(zaplanuj to, co jest ważne)</p>
+          <p>(rzeczy ważne, lecz mniej pilne)</p>
           <DecideTasks
             showedInMainView={false}
             completionDate={completionDate}
@@ -47,7 +47,7 @@ const TaskView = () => {
           elevation={Elevation.THREE}
         >
           <H3>Zrób i zapomnij</H3>
-          <p>(zrób lub oddeleguj, bo po co się męczyć)</p>
+          <p>(rzeczy nieważne, lecz niestety pilne)</p>
           <DelegateTasks
             showedInMainView={false}
             completionDate={completionDate}
@@ -59,8 +59,8 @@ const TaskView = () => {
           interactive={false}
           elevation={Elevation.THREE}
         >
-          <H3>A gdy masz gorszy czas...</H3>
-          <p>(lepiej sobie odpuścić, bo to tzw. "zapychacze czasu")</p>
+          <H3>Zapychacze czasu</H3>
+          <p>(rzeczy nieważne i niepilne)</p>
           <DropTasks showedInMainView={false} completionDate={completionDate} />
         </Card>
       </div>

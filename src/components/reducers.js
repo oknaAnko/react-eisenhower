@@ -40,18 +40,13 @@ const taskReducer = (state = initialState, action) => {
           return task;
         }),
       });
-    ////fix me - delete all tasks from deletedList
-    // case "DELETE_ALL":
-    //   return Object.assign({}, state, {
-    //     tasks: state.tasks.map((task) => {
-    //       if (action.id === task.id) {
-    //         return Object.assign({}, task, {
-    //           deleted: true,
-    //         });
-    //       }
-    //       return task;
-    //     }),
-    //   });
+    case "CLEAR_LIST":
+      return Object.assign({}, state, {
+        tasks: state.tasks.filter(
+          (task) => action.status !== task.status || task.deleted !== true
+        ),
+      });
+
     default:
       return state;
   }

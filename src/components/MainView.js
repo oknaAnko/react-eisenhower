@@ -7,20 +7,22 @@ import DoTasks from "./containers/DoTasks";
 import DecideTasks from "./containers/DecideTasks";
 import DelegateTasks from "./containers/DelegateTasks";
 import DropTasks from "./containers/DropTasks";
+import TodayTasks from "./containers/TodayTasks";
 
 const MainView = () => {
   const completionDate = new Date().toISOString().slice(0, 10);
   return (
     <div className="main">
       <AddTask />
+      <TodayTasks />
       <div className="lists">
         <Card
           className="doList"
           interactive={false}
           elevation={Elevation.THREE}
         >
-          <H3>Fire</H3>
-          <p>(zrób szybko, bo się pali)</p>
+          <H3>Pali się!</H3>
+          <p>(rzeczy ważne i pilne)</p>
           <DoTasks showedInMainView={true} completionDate={completionDate} />
           <Link
             to="/tasks"
@@ -38,7 +40,7 @@ const MainView = () => {
           elevation={Elevation.THREE}
         >
           <H3>Zaplanuj przyszłość</H3>
-          <p>(zaplanuj to, co jest ważne)</p>
+          <p>(rzeczy ważne, lecz mniej pilne)</p>
           <DecideTasks
             showedInMainView={true}
             completionDate={completionDate}
@@ -58,7 +60,7 @@ const MainView = () => {
           elevation={Elevation.THREE}
         >
           <H3>Zrób i zapomnij</H3>
-          <p>(zrób lub oddeleguj, bo po co się męczyć)</p>
+          <p>(rzeczy nieważne, lecz niestety pilne)</p>
           <DelegateTasks
             showedInMainView={true}
             completionDate={completionDate}
@@ -77,8 +79,8 @@ const MainView = () => {
           interactive={false}
           elevation={Elevation.THREE}
         >
-          <H3>A gdy masz gorszy czas...</H3>
-          <p>(lepiej sobie odpuścić, bo to tzw. "zapychacze czasu")</p>
+          <H3>Zapychacze czasu</H3>
+          <p>(rzeczy nieważne i niepilne)</p>
           <DropTasks showedInMainView={true} completionDate={completionDate} />
           <Link
             to="/tasks"
