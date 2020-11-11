@@ -12,6 +12,7 @@ import "../styles/App.css";
 import Header from "./layouts/Header";
 import MainView from "./MainView";
 import TaskView from "./TaskView";
+import LoginView from "./LoginView";
 import Footer from "./layouts/Footer";
 
 /* eslint-disable no-underscore-dangle */
@@ -47,18 +48,22 @@ class App extends Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
-            <header>
-              <Header />
-            </header>
             <div className="wrapper">
-              <Switch>
-                <Route path="/" exact component={MainView} />
-                <Route path="/:id" component={TaskView} />
-              </Switch>
+              <header>
+                <Header />
+              </header>
+              <div className="view-width">
+                <Switch>
+                  <Route path="/" exact component={MainView} />
+                  <Route path="/home" component={MainView} />
+                  <Route path="/tasks" component={TaskView} />
+                  <Route path="/login" component={LoginView} />
+                </Switch>
+              </div>
+              <footer>
+                <Footer />
+              </footer>
             </div>
-            <footer>
-              <Footer />
-            </footer>
           </Router>
         </PersistGate>
       </Provider>

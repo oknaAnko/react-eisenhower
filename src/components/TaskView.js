@@ -11,7 +11,7 @@ const TaskView = () => {
   return (
     <div>
       <Link
-        to="/"
+        to="/home"
         className="bp3-button bp3-intent-primary goToAnotherView"
         tabIndex={0}
       >

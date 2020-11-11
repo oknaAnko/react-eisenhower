@@ -13,7 +13,6 @@ const TaskList = (sth) => {
     clearDeleteList,
   } = sth;
 
-  // console.log(status);
 
   const undoneTasks = tasks.filter((task) => !task.done);
 

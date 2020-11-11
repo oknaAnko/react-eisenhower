@@ -1,13 +1,28 @@
-div.wrapper {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  height: 50px;
+}
+
+div.view-width {
   width: 70%;
   margin: 0 auto;
+  flex-grow: 1;
 }
 
 footer {
   margin-top: 15px;
-  height: 5vh;
+  height: 50px;
   text-align: center;
-  line-height: 5vh;
+  line-height: 50px;
+}
+
+.footer p {
+  margin-bottom: 0;
 }
 
 h6 {

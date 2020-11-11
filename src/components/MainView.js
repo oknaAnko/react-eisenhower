@@ -12,7 +12,7 @@ import TodayTasks from "./containers/TodayTasks";
 const MainView = () => {
   const completionDate = new Date().toISOString().slice(0, 10);
   return (
-    <div className="main">
+    <div className="main-view">
       <AddTask />
       <TodayTasks />
       <div className="lists">
