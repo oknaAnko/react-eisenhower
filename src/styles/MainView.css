@@ -1,0 +1,31 @@
+.lists {
+  /* padding: 15px; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.lists div {
+  flex-basis: 45%;
+  margin-top: 20px;
+  padding: 10px;
+  /* border: 1px solid gainsboro; */
+  border-radius: 10px;
+  text-align: center;
+}
+.goToAnotherView {
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+.doList {
+  background-color: #ff6e4a;
+}
+.decideList {
+  background-color: #b6d94c;
+}
+.delegateList {
+  background-color: #ffc940;
+}
+.dropList {
+  background-color: #c274c2;
+}

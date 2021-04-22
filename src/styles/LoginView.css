@@ -1,0 +1,10 @@
+.error-message {
+  margin-left: 10px;
+  color: red;
+  line-height: 30px;
+}
+
+.login-confirmation {
+  margin-bottom: 10px;
+  color: green;
+}

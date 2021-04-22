@@ -1,9 +1,12 @@
 import React from "react";
+import { Navbar } from "@blueprintjs/core";
 
 const Footer = () => {
   return (
     <div className="footer">
-      <p>to do app made by me</p>
+      <Navbar>
+        <p>Copywright &copy; okna_anko 2020. All Rights Reserved.</p>
+      </Navbar>
     </div>
   );
 };

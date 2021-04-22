@@ -1,142 +1,98 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import AddTask from "./AddTask";
-import TaskList from "./TaskList";
+import "../styles/MainView.css";
+import { Card, Elevation, H3 } from "@blueprintjs/core";
+import DoTasks from "./containers/DoTasks";
+import DecideTasks from "./containers/DecideTasks";
+import DelegateTasks from "./containers/DelegateTasks";
+import DropTasks from "./containers/DropTasks";
+import TodayTasks from "./containers/TodayTasks";
 
-class MainView extends Component {
-  counter = 0;
-  state = {
-    tasks: [
-      {
-        id: this.counter,
-        name: "",
-        date: "",
-        status: null,
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 0,
-        name: "zad1",
-        date: "2020-26-04",
-        status: "do",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 1,
-        name: "zad2",
-        date: "2020-26-04",
-        status: "decide",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 2,
-        name: "zad3",
-        date: "2020-26-04",
-        status: "delegate",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 3,
-        name: "zad4",
-        date: "2020-26-04",
-        status: "drop",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 4,
-        name: "zad4",
-        date: "2020-26-04",
-        status: "do",
-        // active: true,
-        done: false,
-        deleted: false,
-      },
-      {
-        id: 5,
-        name: "zad5",
-        date: "2020-26-04",
-        status: "do",
-        // active: true,
-        done: true,
-        deleted: false,
-      },
-    ],
-  };
-  // tasks = [
-  //   { id: 0, name: "zad1", date: "2020-26-04", status: "do" },
-  //   { id: 1, name: "zad2", date: "2020-26-04", status: "decide" },
-  //   { id: 2, name: "zad3", date: "2020-26-04", status: "delegate" },
-  //   { id: 3, name: "zad4", date: "2020-26-04", status: "drop" },
-  // ];
+const MainView = () => {
+  const completionDate = new Date().toISOString().slice(0, 10);
+  return (
+    <div className="main-view">
+      <AddTask />
+      <TodayTasks />
+      <div className="lists">
+        <Card
+          className="doList"
+          interactive={false}
+          elevation={Elevation.THREE}
+        >
+          <H3>Pali się!</H3>
+          <p>(rzeczy ważne i pilne)</p>
+          <DoTasks showedInMainView={true} completionDate={completionDate} />
+          <Link
+            to="/tasks"
+            className="bp3-button bp3-intent-primary goToAnotherView"
+            // role="button"
+            tabIndex={0}
+          >
+            więcej
+          </Link>
+        </Card>
 
-  addTask = (name, date, status) => {
-    const newTask = {
-      id: this.counter,
-      name: name,
-      date: date,
-      status: status,
-    };
-    this.counter++;
-    this.setState((prevState) => ({
-      tasks: [...prevState.tasks, newTask],
-    }));
-    console.log("dodaje nowy obiekt");
-    return true;
-  };
+        <Card
+          className="decideList"
+          interactive={false}
+          elevation={Elevation.THREE}
+        >
+          <H3>Zaplanuj przyszłość</H3>
+          <p>(rzeczy ważne, lecz mniej pilne)</p>
+          <DecideTasks
+            showedInMainView={true}
+            completionDate={completionDate}
+          />
+          <Link
+            to="/tasks"
+            className="bp3-button bp3-intent-primary goToAnotherView"
+            tabIndex={0}
+          >
+            więcej
+          </Link>
+        </Card>
 
-  moveTaskToDoneList = (id) => {
-    console.log("przenoszę do donelist");
-    const tasks = [...this.state.tasks];
-    tasks.forEach((task) => {
-      if (task.id === id) {
-        console.log("jestem w task.done");
-        task.done = true;
-      }
-    });
-    this.setState({
-      tasks: tasks,
-    });
-  };
+        <Card
+          className="delegateList"
+          interactive={false}
+          elevation={Elevation.THREE}
+        >
+          <H3>Zrób i zapomnij</H3>
+          <p>(rzeczy nieważne, lecz niestety pilne)</p>
+          <DelegateTasks
+            showedInMainView={true}
+            completionDate={completionDate}
+          />
+          <Link
+            to="/tasks"
+            className="bp3-button bp3-intent-primary goToAnotherView"
+            tabIndex={0}
+          >
+            więcej
+          </Link>
+        </Card>
 
-  deleteTask = (id) => {
-    console.log("usuwam cię");
-    // const tasks = [...this.state.tasks];
-    // tasks.forEach((task) => {
-    //   if (task.id === id) {
-    //     task.delete = true;
-    //   }
-    // });
-    // this.setState({
-    //   tasks: tasks,
-    // });
-    const tasks = [...this.state.tasks];
-    const newtasks = tasks.filter((task) => task.id !== id);
-    this.setState({
-      tasks: newtasks,
-    });
-  };
-
-  render() {
-    return (
-      <div className="main">
-        <AddTask add={this.addTask} />
-        <TaskList
-          tasks={this.state.tasks}
-          moveToDone={this.moveTaskToDoneList}
-          deleteTask={this.deleteTask}
-        />
+        <Card
+          className="dropList"
+          interactive={false}
+          elevation={Elevation.THREE}
+        >
+          <H3>Zapychacze czasu</H3>
+          <p>(rzeczy nieważne i niepilne)</p>
+          <DropTasks showedInMainView={true} completionDate={completionDate} />
+          <Link
+            to="/tasks"
+            className="bp3-button bp3-intent-primary goToAnotherView"
+            tabIndex={0}
+          >
+            więcej
+          </Link>
+        </Card>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default MainView;

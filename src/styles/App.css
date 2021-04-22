@@ -1,24 +1,30 @@
-div.wrapper {
-  width: 90%;
-  max-height: 100vh;
-  margin: 0 auto;
+.wrapper {
   display: flex;
   flex-direction: column;
-  /* padding: 20px; */
-  border: 1px solid rgb(255, 140, 0);
-}
-header {
-  flex-basis: 10vh;
-  background-color: rgb(235, 226, 215);
+  min-height: 100vh;
 }
 
-div.main {
+header {
+  height: 50px;
+}
+
+div.view-width {
+  width: 70%;
+  margin: 0 auto;
   flex-grow: 1;
-  /* background-color: rgb(224, 223, 223); */
 }
 
 footer {
-  flex-basis: 5vh;
-  background-color: rgb(170, 80, 80);
+  margin-top: 15px;
+  height: 50px;
   text-align: center;
+  line-height: 50px;
+}
+
+.footer p {
+  margin-bottom: 0;
+}
+
+h6 {
+  text-transform: uppercase;
 }

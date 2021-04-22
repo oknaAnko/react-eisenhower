@@ -1,0 +1,36 @@
+.todayTasksCard {
+  min-height: 140px;
+  border-radius: 10px;
+  background-color: #ebf1f5;
+}
+.oneTodayTaskCard {
+  margin-top: 5px;
+  padding: 10px;
+  text-align: left;
+  line-height: 0px;
+  border-radius: 5px;
+}
+
+.colorStatus {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 2px;
+}
+
+.do {
+  background-color: #ff6e4a;
+}
+.decide {
+  background-color: #b6d94c;
+}
+.delegate {
+  background-color: #ffc940;
+}
+.drop {
+  background-color: #c274c2;
+}
+
+.vertical-txt {
+  vertical-align: 4px;
+}
