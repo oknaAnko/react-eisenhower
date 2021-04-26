@@ -1,18 +1,18 @@
 import React from "react";
-import Task from "./Task";
+
 import { Card, Elevation, H6, Button } from "@blueprintjs/core";
 import "../styles/TaskList.css";
 
-const TaskList = (sth) => {
-  const {
-    tasks,
-    doneTasks,
-    deletedTasks,
-    showedInMainView,
-    completionDate,
-    clearDeleteList,
-  } = sth;
+import Task from "./Task";
 
+const TaskList = ({
+  tasks,
+  doneTasks,
+  deletedTasks,
+  showedInMainView,
+  completionDate,
+  clearDeleteList,
+}) => {
 
   const undoneTasks = tasks.filter((task) => !task.done);
 
@@ -31,6 +31,7 @@ const TaskList = (sth) => {
     if (a < b) return -1;
     return 0;
   });
+
   const doneTasksTable = doneTasks.map((task) => (
     <Task key={task.id} task={task} completionDate={completionDate} />
   ));

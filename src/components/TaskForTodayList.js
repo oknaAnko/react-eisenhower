@@ -1,7 +1,9 @@
 import React from "react";
-import TaskForToday from "./TaskForToday";
+
 import { Card, Elevation, H6 } from "@blueprintjs/core";
 import "../styles/TaskForTodayList.css";
+
+import TaskForToday from "./TaskForToday";
 
 const TaskForTodayList = ({ tasks }) => {
   const undoneTasksForToday = tasks.filter((task) => !task.done);

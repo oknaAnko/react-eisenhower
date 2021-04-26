@@ -1,8 +1,10 @@
 import React from "react";
-import "../styles/Task.css";
-import { Card, Elevation, Button } from "@blueprintjs/core";
-import { moveToDoneList, moveToDeleteList } from "./actions";
 import { connect } from "react-redux";
+
+import { Card, Elevation, Button } from "@blueprintjs/core";
+import "../styles/Task.css";
+
+import { moveToDoneList, moveToDeleteList } from "./actions";
 
 const Task = (props) => {
   const { id, name, deadline, done, deleted } = props.task;

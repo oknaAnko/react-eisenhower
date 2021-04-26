@@ -24,7 +24,6 @@ export const moveToDoneList = (id) => {
 };
 
 export const moveToDeleteList = (id) => {
-  console.log(id);
   return {
     type: "MOVE_TO_DELETE",
     id,
@@ -32,7 +31,6 @@ export const moveToDeleteList = (id) => {
 };
 
 export const clearDeleteList = (status) => {
-  console.log(status);
   return {
     type: "CLEAR_LIST",
     status,

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import "../styles/AddTask.css";
-import { Button, FormGroup, ControlGroup, InputGroup } from "@blueprintjs/core";
-import { addTask } from "./actions";
 import { connect } from "react-redux";
+
+import { Button, FormGroup, ControlGroup, InputGroup } from "@blueprintjs/core";
+import "../styles/AddTask.css";
+
+import { addTask } from "./actions";
 
 class AddTask extends Component {
   minDate = new Date().toISOString().slice(0, 10);

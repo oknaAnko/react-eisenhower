@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AddTask from "./AddTask";
-import "../styles/MainView.css";
+
 import { Card, Elevation, H3 } from "@blueprintjs/core";
+import "../styles/MainView.css";
+
+import AddTask from "./AddTask";
 import DoTasks from "./containers/DoTasks";
 import DecideTasks from "./containers/DecideTasks";
 import DelegateTasks from "./containers/DelegateTasks";
@@ -27,7 +29,6 @@ const MainView = () => {
           <Link
             to="/tasks"
             className="bp3-button bp3-intent-primary goToAnotherView"
-            // role="button"
             tabIndex={0}
           >
             więcej

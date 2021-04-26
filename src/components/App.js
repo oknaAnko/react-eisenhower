@@ -7,20 +7,14 @@ import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
 import thunk from "redux-thunk";
 
-import taskReducer from "./reducers";
 import "../styles/App.css";
+
+import taskReducer from "./reducers";
 import Header from "./layouts/Header";
 import MainView from "./MainView";
 import TaskView from "./TaskView";
 import LoginView from "./LoginView";
 import Footer from "./layouts/Footer";
-
-/* eslint-disable no-underscore-dangle */
-// const store = createStore(
-//   taskReducer /* preloadedState, */,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
-/* eslint-enable */
 
 const persistConfig = {
   key: "root",
@@ -29,18 +23,12 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, taskReducer);
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// export default () => {
 let store = createStore(
-  persistedReducer /* preloadedState, */,
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  persistedReducer,
   composeEnhancer(applyMiddleware(thunk))
 );
 let persistor = persistStore(store);
 
-//   return { store, persistor }
-// }
-
-// const store = createStore(taskReducer);
 
 class App extends Component {
   render() {
@@ -72,4 +60,4 @@ class App extends Component {
 }
 
 export default App;
-//
+

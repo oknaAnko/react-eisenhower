@@ -1,12 +1,6 @@
 .form {
-  /* border: 1px solid gainsboro; */
-  /* margin-top: 5px; */
   padding: 15px 0;
 }
-/* input,
-.text-upper {
-  text-transform: uppercase;
-} */
 
 .flex-row-forms {
   display: flex;
@@ -15,8 +9,4 @@
 
 .flex-form {
   flex-basis: 45%;
-}
-
-.addform {
-  border: 1px solid green;
 }

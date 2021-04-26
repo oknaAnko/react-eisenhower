@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 
+import { Button, FormGroup, ControlGroup, InputGroup } from "@blueprintjs/core";
 import "../styles/LoginView.css";
-
-import {
-  Button,
-  FormGroup,
-  ControlGroup,
-  InputGroup,
-} from "@blueprintjs/core";
-
 
 class LoginView extends Component {
   state = {
@@ -155,7 +148,6 @@ class LoginView extends Component {
               <InputGroup
                 id="username"
                 placeholder="wpisz"
-                // required
                 value={username}
                 onChange={this.handleUsernameChange}
               />
@@ -173,7 +165,6 @@ class LoginView extends Component {
                 type="password"
                 id="password"
                 placeholder="wpisz"
-                // required
                 value={password}
                 onChange={this.handlePasswordChange}
               />
